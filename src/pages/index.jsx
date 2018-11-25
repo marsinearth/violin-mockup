@@ -164,7 +164,7 @@ const Index = () => (
           <BigTitle>
             Hello, <br /> This is a violin mockup page
           </BigTitle>
-          <Subtitle>I'm introducing some of the great violinists here.</Subtitle>
+          <Subtitle>I'm introducing some of the great contemporary violinists here.</Subtitle>
         </Hero>
       </Content>
       <DividerMiddle
