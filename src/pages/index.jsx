@@ -59,7 +59,7 @@ const Title = styled.h1`
     position: absolute;
     background-size: 34px;
     #animation: ${rotate} 4s linear infinite;
-    left: -60px;
+    left: -45px;
     top: 5px;
   }
 `;
