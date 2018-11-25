@@ -101,7 +101,7 @@ const AboutHero = styled.div`
 `;
 
 const Avatar = styled.img`
-  ${tw('rounded-full w-32 xl:w-48 shadow-lg h-auto')};
+  ${tw('rounded-lg w-4/5 lg:w-2/5 shadow-lg h-auto')};
 `;
 
 const AboutSub = styled.span`
@@ -271,9 +271,6 @@ const Index = () => (
           </AboutDesc>
           <AboutDesc>
             Giuseppe Guarnerius, known as del Gesu came from a large family of violin makers and learned the craft from his father. He was an erratic worker who primarily worked alone, and he never put his name on a cello (although I did work on one by his uncle Petrus that definitely bears Giuseppe's workmanship).  As a cello enthusiast, I don't think I'll ever forgive Giuseppe for this lack of cello love. His working life spanned about 20 years, from approximately 1726 to 1744. His output was relatively small and about 100 of his instruments still exist.
-          </AboutDesc>
-          <AboutDesc>
-            Imagine you are a violin enthusiast with an infinite amount of funds to spend on a violin - which maker would you choose?  If you were a demanding soloist, the answer might be surprising - many soloists prefer the del Gesu violins over Stradivaris. Del Gesus' tend to be a bit stronger and louder. They also have a richer, mellower sound that enables them to carry further than a Stradivarius. The trade-off is that they are also more demanding and less forgiving than a Strad. Del Gesus' are like great sports cars - you can go faster than you ever imagined, but you can also crash faster than you ever imagined.
           </AboutDesc>
         </Inner>
       </Content>
