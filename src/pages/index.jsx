@@ -12,8 +12,8 @@ import { hidden } from '../styles/utils';
 import { colors } from '../../tailwind';
 import violin from '../images/violin.svg';
 import hilary from '../images/hilaryhahn.jpg';
-import janine from '../images/janine.webp';
-import maxim from '../images/maxim.webp';
+import janine from '../images/janine.jpg';
+import maxim from '../images/maxim.jpg';
 import aleksey from '../images/aleksey.jpg';
 import StradiVsGuarneri from '../images/strad_and_guarneri.jpg';
 import '../styles/global';
@@ -189,7 +189,7 @@ const Index = () => (
               title="Janine Jansen"
               link="https://www.janinejansen.com/"
               // bg="linear-gradient(to right, #662D8C 0%, #ED1E79 100%)"
-              bg={`url(${janine}) 84% 50%`}
+              bg={`url(${janine}) center`}
             >
               "Dutch Empress"
             </ProjectCard>
@@ -197,7 +197,7 @@ const Index = () => (
               title="Maxim Vengerov"
               link="http://www.nfbm.com/maxim-vengerov/"
               // bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
-              bg={`url(${maxim}) 35% 50%`}
+              bg={`url(${maxim}) center`}
             >
               "Jewish and Russian. Standard Virtuoso"
             </ProjectCard>
