@@ -21,4 +21,17 @@ injectGlobal`
     margin: 0;
     padding: 0;
   }
+
+  .ReactModal__Overlay {
+    transition: opacity 900ms ease-in-out;
+    opacity: 0;
+
+    &--after-open {
+      opacity: 1;
+    }
+
+    &--before-close {
+      opacity: 0;
+    }
+  }
 `;

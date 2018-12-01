@@ -1,0 +1,34 @@
+{
+  "Hilary": {
+    "name": "Hilary Hahn",
+    "webSite": "http://www.hilaryhahn.com/",
+    "bioPicName": "hilaryBio",
+    "age": 38,
+    "bio1": "Three-time Grammy Award-winning violinist Hilary Hahn is renowned for her clear and brilliant musicality, expansive interpretations of an incredibly varied repertoire, and organic connections with her audience. Her creative approach to music-making and her commitment to sharing her experiences with a global community have made her a fan favorite.",
+    "bio2": "She recently created the Instagram project #100DaysOfPractice for which she posted videos of herself practicing for a hundred days straight, openly sharing her behind-the-scenes work with her fans to break down perceived barriers around the creative process."
+  },
+  "Janine": {
+    "name": "Janine Jansen",
+    "webSite": "https://www.janinejansen.com/",
+    "bioPicName": "janineBio",
+    "age": 40,
+    "bio1": "Violinist Janine Jansen works regularly with the world’s most eminent orchestras and conductors and has been described by the New York Times as being as “riveting in silence as in sound”.",
+    "bio2": "This season she is Artist-in-Residence with Tonhalle Orchester Zurich as well as Gothenburg Symphony Orchestra performing a variety of concerto and chamber music programmes in Zurich and Gothenburg throughout the season. She is also featured artist at the Mozartwoche Salzburg where she will perform with the Wiener Philharmoniker under Bernhard Haitink."
+  },
+  "Maxim": {
+    "name": "Maxim Vengerov",
+    "webSite": "http://www.nfbm.com/maxim-vengerov/",
+    "bioPicName": "maximBio",
+    "age": 44,
+    "bio1": "Universally hailed as one of the world’s finest musicians, and often referred to as the greatest living string player in the world today, Grammy award winner Maxim Vengerov also enjoys international acclaim as a conductor and is one of the most in-demand soloists.",
+    "bio2": "Born in 1974, he began his career as a solo violinist at the age of 5, won the Wieniawski and Carl Flesch international competitions at ages 10 and 15 respectively, studied with Galina Tourchaninova and Zakhar Bron, made his first recording at the age of 10, and went on to record extensively for high-profile labels including Melodia, Teldec and EMI, earning among others, Grammy and Gramophone artist of the year awards."
+  },
+  "Aleksey": {
+    "name": "Aleksey Igudesman",
+    "webSite": "https://www.alekseyigudesman.com/",
+    "bioPicName": "alekseyBio",
+    "age": 45,
+    "bio1": "Aleksey Igudesman was born in Leningrad at a very young age. He is known as a violinist, composer, conductor, comedian, film maker, actor, writer, poet, and entrepreneur, but his secret passion is cooking, eating out in luxurious restaurants and writing reviews on tripadvisor.",
+    "bio2": "He has never won any competitions, mainly because he has never entered any. During his studies at the Yehudi Menuhin School, he read the entire plays of Shaw, Wilde and Chekhov, which didn’t improve his violin playing, but made him feel foolishly somewhat superior to other less intellectually endowed, yet harder practising, colleagues."
+  }
+}
