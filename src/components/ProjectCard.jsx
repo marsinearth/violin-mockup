@@ -1,7 +1,7 @@
 /* global tw */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   ${tw('shadow-lg w-full relative no-underline rounded-lg px-8 py-16 md:py-24 text-white')};

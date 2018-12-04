@@ -1,6 +1,6 @@
 /* global tw */
 import React, { PureComponent } from 'react';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import 'typeface-cantata-one';
 import 'typeface-open-sans';
 import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
