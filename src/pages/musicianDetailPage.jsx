@@ -10,18 +10,6 @@ import JanineBioPic from '../images/janineBio.jpg';
 import MaximBioPic from '../images/maximBio.jpg';
 import AlekseyBioPic from '../images/alekseyBio.jpg';
 
-const { userAgent } = window.navigator;
-
-let mobile = false;
-let transformFrom = { transform: 'translate(-100%, 100%)' };
-let transformTo = { transform: 'translate(0, 0)' };
-
-if (userAgent.includes('Mobile')) {
-  mobile = true;
-  transformFrom = { opacity: 0 };
-  transformTo = { opacity: 1 };
-}
-
 const BioBox = styled.div`
   ${tw('rounded-lg h-full overflow-hidden relative')};
   background-color: #000;
@@ -32,7 +20,7 @@ const BioBox = styled.div`
 const BioScrollBox = styled.div`
   ${tw('p-8 h-full overflow-y-scroll flex flex-col justify-end text-right')};
   background: linear-gradient(-45deg, transparent, black 50%, transparent 50%);
-  ${props => (mobile 
+  ${props => (props.mobile 
     ? `opacity: ${props.changeProps.opacity}` 
     : `transform: ${props.changeProps.transform}`
    )};
@@ -102,7 +90,10 @@ const PageContents = ({
     bio2,
     age,
     webSite
-  }
+  },
+  mobile,
+  transformFrom,
+  transformTo
 }) => (
   <BioBox url={getBioPic(bioPicName)}>
     <Spring
@@ -111,7 +102,7 @@ const PageContents = ({
       to={transformTo}
     >
       {props => (
-        <BioScrollBox changeProps={props}>
+        <BioScrollBox changeProps={props} mobile={mobile} >
           <BioTitle>{`Bio of ${name}`}</BioTitle>
           <BioAgeText>{`Age: ${age}`}</BioAgeText>
           <div className="bioContainer">
@@ -131,7 +122,7 @@ const PageContents = ({
   </BioBox>
 );
 
-const PageModal = ({ isModalOpen, musician, closeModal }) => (
+const PageModal = ({ isModalOpen, musician, closeModal, mobile, transformFrom, transformTo }) => (
   <Modal
     isOpen={isModalOpen}
     // onAfterOpen={this.afterOpenModal}
@@ -139,7 +130,12 @@ const PageModal = ({ isModalOpen, musician, closeModal }) => (
     style={customStyles}
     contentLabel={`A modal bio of ${musician}`}
   >
-    <PageContents musician={musician} />
+    <PageContents
+      musician={musician} 
+      mobile={mobile}
+      transformFrom={transformFrom}
+      transformTo={transformTo}
+    />
   </Modal>
 );
 

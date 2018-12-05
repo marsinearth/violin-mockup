@@ -133,8 +133,25 @@ const Footer = styled.footer`
 export default class Index extends PureComponent {
   state = {
     isModalOpen: false,
-    musician: null
+    musician: null,
+    mobile: false,
+    transformFrom: { transform: 'translate(-100%, 100%)' },
+    transformTo: { transform: 'translate(0, 0)' }
   };
+
+  componentDidMount() {
+    if (window !== 'undefined') {
+      const { userAgent } = window.navigator;
+
+      if (userAgent.includes('Mobile')) {
+        this.setState({
+          mobile: true,
+          transformFrom: { opacity: 0 },
+          transformTo: { opacity: 1 },
+        });
+      }
+    }
+  }
 
   onClickCard = e => {
     const { target: { dataset, parentElement: { dataset: parentDataSet } }} = e;
@@ -154,7 +171,12 @@ export default class Index extends PureComponent {
   };
 
   render() {
-    const { isModalOpen, musician } = this.state;
+    const { isModalOpen, musician, mobile, transformFrom, transformTo } = this.state;
+    const commonBioProps = {
+      mobile,
+      transformFrom,
+      transformTo,
+    };
     return (
       <>
         <SEO />
@@ -353,7 +375,7 @@ export default class Index extends PureComponent {
             <SVG icon="sixtyFourthRest" width={6} stroke={colors['grey-darker']} fill={colors['grey-darker']} left="80%" top="70%" />
           </Divider>
         </Parallax>
-        <PageModal isModalOpen={isModalOpen} musician={musician} closeModal={this.closeModal} />
+        <PageModal isModalOpen={isModalOpen} musician={musician} closeModal={this.closeModal} {...commonBioProps} />
       </>
     );
   }
