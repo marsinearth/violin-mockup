@@ -10,6 +10,18 @@ import JanineBioPic from '../images/janineBio.jpg';
 import MaximBioPic from '../images/maximBio.jpg';
 import AlekseyBioPic from '../images/alekseyBio.jpg';
 
+const { userAgent } = window.navigator;
+
+let mobile = false;
+let transformFrom = { transform: 'translate(-100%, 100%)' };
+let transformTo = { transform: 'translate(0, 0)' };
+
+if (userAgent.includes('Mobile')) {
+  mobile = true;
+  transformFrom = { opacity: 0 };
+  transformTo = { opacity: 1 };
+}
+
 const BioBox = styled.div`
   ${tw('rounded-lg h-full overflow-hidden relative')};
   background-color: #000;
@@ -20,14 +32,17 @@ const BioBox = styled.div`
 const BioScrollBox = styled.div`
   ${tw('p-8 h-full overflow-y-scroll flex flex-col justify-end text-right')};
   background: linear-gradient(-45deg, transparent, black 50%, transparent 50%);
-  transform: ${props => props.transform};
+  ${props => (mobile 
+    ? `opacity: ${props.changeProps.opacity}` 
+    : `transform: ${props.changeProps.transform}`
+   )};
   .bioContainer {
     ${tw('flex flex-col')};
     p.p1 {
-      ${tw('w-1/3 self-end text-grey-light lg:text-2xl sm:text-xl')};
+      ${tw('self-end text-grey-light lg:text-2xl sm:text-xl')};
     }
     p.p2 {
-      ${tw('w-3/4 self-end text-grey-light lg:text-2xl sm:text-xl')};
+      ${tw('self-end text-grey-light lg:text-2xl sm:text-xl')};
     }
     a {
       ${tw('text-grey underline mb-8')};
@@ -92,11 +107,11 @@ const PageContents = ({
   <BioBox url={getBioPic(bioPicName)}>
     <Spring
       delay={1500}
-      from={{ transform: 'translate(-100%, 100%)' }}
-      to={{ transform: 'translate(0, 0)' }}
+      from={transformFrom}
+      to={transformTo}
     >
-      {({ transform }) => (
-        <BioScrollBox transform={transform}>
+      {props => (
+        <BioScrollBox changeProps={props}>
           <BioTitle>{`Bio of ${name}`}</BioTitle>
           <BioAgeText>{`Age: ${age}`}</BioAgeText>
           <div className="bioContainer">
