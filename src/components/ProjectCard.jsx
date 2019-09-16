@@ -5,11 +5,12 @@ import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   ${tw('shadow-lg w-full relative no-underline rounded-lg px-8 py-16 md:py-24 text-white')};
-  background: ${props => props.bg};
+  background: #000 ${({ bg }) => bg};
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   &:hover {
     transform: translateY(-5px);
   }
+  cursor: pointer;
 `;
 
 const Text = styled.div`
@@ -18,13 +19,13 @@ const Text = styled.div`
 `;
 
 const Title = styled.div`
-  ${tw('text-white uppercase text-2xl md:text-3xl xl:text-4xl tracking-wide font-sans pt-8')};
+  ${tw('text-white uppercase text-2xl md:text-3xl xl:text-4xl letter-spacing-wide font-sans pt-8')};
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 `;
 
-const ProjectCard = ({ title, name, link, children, bg, onClick }) => (
-  <Wrapper bg={bg} data-name={name} onClick={onClick}>
-    <Text>{children}</Text>
+const ProjectCard = ({ title, nickName, bg, onClick }) => (
+  <Wrapper bg={bg} onClick={onClick}>
+    <Text>{`"${nickName}"`}</Text>
     <Title>{title}</Title>
   </Wrapper>
 );
@@ -33,9 +34,7 @@ export default ProjectCard;
 
 ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  nickName: PropTypes.string.isRequired,
   bg: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

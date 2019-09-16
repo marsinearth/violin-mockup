@@ -1,5 +1,9 @@
 @tailwind base;
 
+html {
+  line-height: 1.15;
+}
+
 h1 {
   font-size: theme('fontSize.xl');
   font-weight: theme('fontWeight.semibold');
@@ -13,6 +17,10 @@ ul {
 ol {
   list-style-type: decimal;
   padding-left: theme('padding.4');
+}
+
+img, a, p, span {
+  display: inline;
 }
 
 @tailwind utilities;

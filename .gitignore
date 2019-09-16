@@ -58,5 +58,7 @@ public/
 
 # Bundle stats
 bundle-stats.json
-
 tailwind.custom.css
+
+# vscode
+.history/

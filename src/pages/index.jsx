@@ -7,7 +7,7 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import SEO from '../components/SEO';
 import SVG from '../components/SVG';
 import ProjectCard from '../components/ProjectCard';
-import { rotate, UpDown, UpDownWide, waveAnimation } from '../styles/animations';
+import { UpDown, UpDownWide, waveAnimation } from '../styles/animations';
 import { hidden } from '../styles/utils';
 import { theme } from '../../tailwind.config';
 import violin from '../images/violin.svg';
@@ -18,7 +18,7 @@ import aleksey from '../images/aleksey.jpg';
 import StradiVsGuarneri from '../images/strad_and_guarneri.jpg';
 import '../styles/global';
 import PageModal from './musicianDetailPage';
-import MusicianData from '../musicianData.json';
+import MusicianData from '../../static/musicianData.json';
 
 const { colors } = theme
 
@@ -124,12 +124,32 @@ const ContactText = styled.p`
 `;
 
 const Footer = styled.footer`
-  ${tw('text-center text-gray-500 absolute bottom-o p-6 font-sans text-md lg:text-lg')};
+  ${tw('text-center text-gray-500 absolute bottom-0 p-6 font-sans text-md lg:text-lg')};
   a {
     color: #e07628;
     text-decoration: none;
   }
 `;
+
+const bgs = [
+  `url(${hilary}) no-repeat 20% 10%`,
+  `url(${janine}) no-repeat center`,
+  `url(${maxim}) no-repeat center`,
+  `url(${aleksey}) no-repeat center`
+]
+
+const projects = (onClick) => MusicianData.map(({ 
+  name,
+  nickName
+}, i) => (
+  <ProjectCard
+    key={name}
+    title={name}
+    bg={bgs[i]}
+    onClick={() => onClick(i)}
+    nickName={nickName}
+  />
+))
 
 export default class Index extends PureComponent {
   state = {
@@ -154,14 +174,8 @@ export default class Index extends PureComponent {
     }
   }
 
-  onClickCard = e => {
-    const { target: { dataset, parentElement: { dataset: parentDataSet } }} = e;
-    let musician = null;
-    if (dataset && dataset.name) {
-      musician = MusicianData[dataset.name];
-    } else if (parentDataSet && parentDataSet.name) {
-      musician = MusicianData[parentDataSet.name];
-    }
+  onClickCard = index => {
+    const musician = MusicianData[index];
     if (musician) {
       this.setState({ musician, isModalOpen: true });
     }
@@ -227,46 +241,7 @@ export default class Index extends PureComponent {
             <Inner>
               <Title>Violinists</Title>
               <ProjectsWrapper>
-                <ProjectCard
-                  title="Hilary Hahn"
-                  name="Hilary"
-                  link="http://www.hilaryhahn.com/"
-                  // bg="linear-gradient(to right, #D4145A 0%, #FBB03B 100%)"
-                  bg={`url(${hilary}) 20% 10%`}
-                  onClick={this.onClickCard}
-                >
-                  "The Bach Machine"
-                </ProjectCard>
-                <ProjectCard
-                  title="Janine Jansen"
-                  name="Janine"
-                  link="https://www.janinejansen.com/"
-                  // bg="linear-gradient(to right, #662D8C 0%, #ED1E79 100%)"
-                  bg={`url(${janine}) center`}
-                  onClick={this.onClickCard}
-                >
-                  "Dutch Empress"
-                </ProjectCard>
-                <ProjectCard
-                  title="Maxim Vengerov"
-                  name="Maxim"
-                  link="http://www.nfbm.com/maxim-vengerov/"
-                  // bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
-                  bg={`url(${maxim}) center`}
-                  onClick={this.onClickCard}
-                >
-                  "Jewish and Russian. Standard Virtuoso"
-                </ProjectCard>
-                <ProjectCard
-                  title="Aleksey Igudesman"
-                  name="Aleksey"
-                  link="https://www.alekseyigudesman.com/"
-                  // bg="linear-gradient(to right, #D585FF 0%, #00FFEE 100%)"
-                  bg={`url(${aleksey}) center`}
-                  onClick={this.onClickCard}
-                >
-                  "A Classical funmaker"
-                </ProjectCard>
+                {projects(this.onClickCard)}
               </ProjectsWrapper>
             </Inner>
           </Content>
