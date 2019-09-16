@@ -62,3 +62,6 @@ tailwind.custom.css
 
 # vscode
 .history/
+
+#Mac
+/**/.DS_Store

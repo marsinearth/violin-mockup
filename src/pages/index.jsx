@@ -17,8 +17,9 @@ import maxim from '../images/maxim.jpg';
 import aleksey from '../images/aleksey.jpg';
 import StradiVsGuarneri from '../images/strad_and_guarneri.jpg';
 import '../styles/global';
-import PageModal from './musicianDetailPage';
+import PageModal, { PreloadPics } from './musicianDetailPage';
 import MusicianData from '../../static/musicianData.json';
+
 
 const { colors } = theme
 
@@ -195,6 +196,7 @@ export default class Index extends PureComponent {
     return (
       <>
         <SEO />
+        <PreloadPics />
         <Parallax pages={5}>
           <Divider speed={0.2} offset={0}>
             <UpDown>

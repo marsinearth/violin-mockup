@@ -4,12 +4,16 @@ import Modal from 'react-modal';
 // import PropTypes from 'prop-types';
 import { Spring } from 'react-spring/renderprops';
 import styled from '@emotion/styled';
-import { differenceInCalendarYears } from 'date-fns'
+import { differenceInYears } from 'date-fns'
 import '../styles/global';
 import HilaryBioPic from '../images/hilaryBio.jpg';
 import JanineBioPic from '../images/janineBio.jpg';
 import MaximBioPic from '../images/maximBio.jpg';
 import AlekseyBioPic from '../images/alekseyBio.jpg';
+
+const PreloadPicContainer = styled.div`
+  display: none;
+`
 
 const BioBox = styled.div`
   ${tw('rounded-lg h-full relative')};
@@ -84,6 +88,15 @@ const getBioPic = picName => {
   }
 };
 
+export const PreloadPics = () => (
+  <PreloadPicContainer>
+    <img src={HilaryBioPic} alt="hilaryBio" />
+    <img src={JanineBioPic} alt="janineBio" />
+    <img src={MaximBioPic} alt="maximBio" />
+    <img src={AlekseyBioPic} alt="alekseyBio" />
+  </PreloadPicContainer>
+)
+
 const PageContents = ({
   musician: {
     name,
@@ -97,7 +110,7 @@ const PageContents = ({
   transformFrom,
   transformTo
 }) => {
-  const age = differenceInCalendarYears(
+  const age = differenceInYears(
     new Date(),
     new Date(born)
   )
