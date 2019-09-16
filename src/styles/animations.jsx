@@ -43,12 +43,12 @@ const upDownWideAnimation = keyframes`
 
 export const UpDown = styled.div`
   animation: ${upDownAnimation} 4s ease-in-out infinite alternate;
-  ${tw('pin absolute')};
+  ${tw('inset-0 absolute')};
 `;
 
 export const UpDownWide = styled.div`
   animation: ${upDownWideAnimation} 18s ease-in-out infinite alternate;
-  ${tw('pin absolute')};
+  ${tw('inset-0 absolute')};
 `;
 
 export const waveAnimation = css`

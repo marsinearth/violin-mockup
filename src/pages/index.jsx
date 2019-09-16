@@ -3,13 +3,13 @@ import React, { PureComponent } from 'react';
 import styled from '@emotion/styled';
 import 'typeface-cantata-one';
 import 'typeface-open-sans';
-import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import SEO from '../components/SEO';
 import SVG from '../components/SVG';
 import ProjectCard from '../components/ProjectCard';
 import { rotate, UpDown, UpDownWide, waveAnimation } from '../styles/animations';
 import { hidden } from '../styles/utils';
-import { colors } from '../../tailwind';
+import { theme } from '../../tailwind.config';
 import violin from '../images/violin.svg';
 import hilary from '../images/hilary.jpg';
 import janine from '../images/janine.jpg';
@@ -19,6 +19,8 @@ import StradiVsGuarneri from '../images/strad_and_guarneri.jpg';
 import '../styles/global';
 import PageModal from './musicianDetailPage';
 import MusicianData from '../musicianData.json';
+
+const { colors } = theme
 
 const Divider = styled(ParallaxLayer)`
   ${tw('absolute w-full h-full')};
@@ -46,12 +48,12 @@ const Inner = styled.div`
 `;
 
 const BigTitle = styled.h1`
-  ${tw('text-5xl lg:text-6xl font-serif text-grey-lightest mb-6 tracking-wide')};
+  ${tw('text-5xl lg:text-6xl font-serif text-gray-100 mb-6 letter-spacing-wide')};
   text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
 `;
 
 const Title = styled.h1`
-  ${tw('text-4xl lg:text-4xl font-serif text-grey-lighter mb-8 tracking-wide relative inline-block')};
+  ${tw('text-4xl lg:text-4xl font-serif text-gray-100 mb-8 letter-spacing-wide relative inline-block')};
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   &:before {
     content: '';
@@ -60,14 +62,13 @@ const Title = styled.h1`
     background: url(${violin});
     position: absolute;
     background-size: 34px;
-    #animation: ${rotate} 4s linear infinite;
     left: -45px;
     top: 5px;
   }
 `;
 
 const Subtitle = styled.p`
-  ${tw('text-2xl lg:text-4xl font-sans text-grey-light mt-8 xxl:w-3/4')};
+  ${tw('text-2xl lg:text-4xl font-sans text-gray-400 mt-8 xxl:w-3/4')};
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
 `;
 
@@ -86,7 +87,7 @@ const ProjectsWrapper = styled.div`
 `;
 
 const WaveWrapper = styled.div`
-  ${tw('absolute pin-b w-full')};
+  ${tw('absolute bottom-0 w-full')};
   transform: matrix(1, 0, 0, -1, 0, 0);
 `;
 
@@ -107,15 +108,15 @@ const Avatar = styled.img`
 `;
 
 const AboutSub = styled.span`
-  ${tw('text-grey-lightest font-semibold pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl')};
+  ${tw('text-gray-100 font-semibold pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl')};
 `;
 
 const AboutDesc = styled.p`
-  ${tw('text-grey-lighter text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify')};
+  ${tw('text-gray-100 text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify')};
 `;
 
 const ContactText = styled.p`
-  ${tw('text-grey-lighter font-sans text-xl md:text-2xl lg:text-3xl')};
+  ${tw('text-gray-200 font-sans text-xl md:text-2xl lg:text-3xl')};
   a {
     color: #e07628;
     text-decoration: none;
@@ -123,7 +124,7 @@ const ContactText = styled.p`
 `;
 
 const Footer = styled.footer`
-  ${tw('text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg')};
+  ${tw('text-center text-gray-500 absolute bottom-o p-6 font-sans text-md lg:text-lg')};
   a {
     color: #e07628;
     text-decoration: none;
@@ -191,15 +192,15 @@ export default class Index extends PureComponent {
               <SVG icon="CClef" className={hidden} width={10} fill={colors['blue-light']} left="80%" top="10%" />
               <SVG icon="violin" width={8} stroke={colors.grey} fill={colors.grey} left="90%" top="50%" />
               <SVG icon="GClef" width={10} fill={colors.grey} left="70%" top="90%" />
-              <SVG icon="violin" width={10} stroke={colors['grey-dark']} fill={colors['grey-dark']} left="30%" top="65%" />
+              <SVG icon="violin" width={10} stroke={colors['grey-600']} fill={colors['grey-dark']} left="30%" top="65%" />
               <SVG icon="GClef" width={4} fill={colors['grey-light']} left="75%" top="10%" />
-              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-darker']} left="45%" top="10%" />
+              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-700']} left="45%" top="10%" />
             </UpDownWide>
-            <SVG icon="GClef" className={hidden} width={8} fill={colors['grey-darker']} left="5%" top="70%" />
+            <SVG icon="GClef" className={hidden} width={8} fill={colors['grey-700']} left="5%" top="70%" />
             <SVG icon="GClef" width={4} fill={colors.grey} left="4%" top="20%" />
             <SVG icon="GClef" width={8} fill={colors['grey-dark']} left="50%" top="60%" />
             <SVG icon="cello" width={6} fill={colors['grey-dark']} left="95%" top="90%" />
-            <SVG icon="cello" className={hidden} width={8} fill={colors['grey-darker']} left="40%" top="80%" />
+            <SVG icon="cello" className={hidden} width={8} fill={colors['grey-700']} left="40%" top="80%" />
             <SVG icon="violin" width={6} stroke={colors.grey} fill={colors.grey} left="25%" top="5%" />
             <SVG icon="GClef" width={8} fill={colors['green-lighter']} left="95%" top="5%" />
             <SVG icon="musicNotes" className={hidden} width={8} fill={colors['purple-lighter']} left="5%" top="90%" />
@@ -308,7 +309,7 @@ export default class Index extends PureComponent {
               <SVG icon="CClef" className={hidden} width={6} fill={colors['purple-light']} left="5%" top="80%" />
               <SVG icon="violin" width={8} stroke={colors.grey} fill={colors.grey} left="95%" top="50%" />
               <SVG icon="GClef" width={4} fill={colors['red-light']} left="85%" top="15%" />
-              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-darkest']} left="45%" top="10%" />
+              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-800']} left="45%" top="10%" />
             </UpDownWide>
             <SVG icon="GClef" width={4} fill={colors['red-light']} left="4%" top="20%" />
             <SVG icon="GClef" width={8} fill={colors.grey} left="70%" top="60%" />
@@ -361,18 +362,18 @@ export default class Index extends PureComponent {
           </Content>
           <Divider speed={0.1} offset={4}>
             <UpDown>
-              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-darker']} left="70%" top="20%" />
-              <SVG icon="violin" width={6} stroke={colors['grey-darker']} left="25%" top="5%" />
+              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-700']} left="70%" top="20%" />
+              <SVG icon="violin" width={6} stroke={colors['grey-700']} left="25%" top="5%" />
             </UpDown>
             <UpDownWide>
               <SVG icon="violin" width={8} stroke={colors.grey} fill={colors.grey} left="95%" top="50%" />
               <SVG icon="GClef" width={4} fill={colors['red-lighter']} left="85%" top="15%" />
-              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-darkest']} left="45%" top="10%" />
+              <SVG icon="cello" className={hidden} width={6} fill={colors['grey-800']} left="45%" top="10%" />
             </UpDownWide>
             <SVG icon="GClef" width={4} fill={colors['red-lighter']} left="4%" top="20%" />
             <SVG icon="GClef" width={8} fill={colors['grey-dark']} left="70%" top="60%" />
             <SVG icon="musicNotes" width={8} fill={colors['grey-dark']} left="20%" top="30%" />
-            <SVG icon="sixtyFourthRest" width={6} stroke={colors['grey-darker']} fill={colors['grey-darker']} left="80%" top="70%" />
+            <SVG icon="sixtyFourthRest" width={6} stroke={colors['grey-700']} fill={colors['grey-700']} left="80%" top="70%" />
           </Divider>
         </Parallax>
         <PageModal isModalOpen={isModalOpen} musician={musician} closeModal={this.closeModal} {...commonBioProps} />

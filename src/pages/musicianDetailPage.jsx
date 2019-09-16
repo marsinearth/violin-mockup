@@ -2,7 +2,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 import styled from '@emotion/styled';
 import '../styles/global';
 import HilaryBioPic from '../images/hilaryBio.jpg';

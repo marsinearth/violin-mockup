@@ -2,7 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { width as twWidth } from '../../tailwind';
+import { theme } from '../../tailwind.config';
+
+const { width: twWidth } = theme
 
 const Wrapper = styled.svg`
   ${tw('stroke-current absolute')};

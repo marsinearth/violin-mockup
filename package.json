@@ -12,7 +12,7 @@
     "emotion-server": "^10.0.2",
     "gatsby": "^2.0.61",
     "gatsby-image": "^2.0.22",
-    "gatsby-plugin-emotion": "^2.0.7",
+    "gatsby-plugin-emotion": "^4.1.6",
     "gatsby-plugin-manifest": "^2.0.11",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-react-helmet": "^3.0.4",
@@ -27,10 +27,10 @@
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.6.1",
-    "react-spring": "^6.1.10",
-    "tailwindcss": "^0.7.2",
-    "typeface-cantata-one": "^0.0.54",
-    "typeface-open-sans": "^0.0.54"
+    "react-spring": "^8.0.27",
+    "tailwindcss": "^1.1.2",
+    "typeface-cantata-one": "^0.0.72",
+    "typeface-open-sans": "^0.0.75"
   },
   "keywords": [
     "gatsby",
@@ -48,9 +48,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
