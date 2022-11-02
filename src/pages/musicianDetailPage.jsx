@@ -38,10 +38,11 @@ const BioScrollBox = styled.div`
       ${tw('self-end text-gray-200 lg:text-2xl sm:text-xl mr-8')};
     }
     a {
-      ${tw('text-gray-500 underline mb-8 mr-8')};
+      ${tw('text-gray-500 underline mb-4 mr-8')};
     }
     span {
       ${tw('text-gray-300 underline mb-8 mr-8')};
+      cursor: pointer;
     }
   }
 `;
@@ -151,7 +152,6 @@ const PageContents = ({
 const PageModal = ({ isModalOpen, musician, closeModal, mobile, transformFrom, transformTo }) => (
   <Modal
     isOpen={isModalOpen}
-    // onAfterOpen={this.afterOpenModal}
     onRequestClose={closeModal}
     style={customStyles}
     contentLabel={`A modal bio of ${musician}`}
