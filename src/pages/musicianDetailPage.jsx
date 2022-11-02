@@ -25,26 +25,29 @@ const BioScrollBox = styled.div`
   ${tw('h-full flex flex-col justify-end text-right')};
   padding: 2rem 0 2rem 2rem;
   background: linear-gradient(-45deg, transparent, black 50%, transparent 50%);
-  ${({ mobile, changeProps }) => (mobile 
-    ? `opacity: ${changeProps.opacity}` 
+  ${({ mobile, changeProps }) => (mobile
+    ? `opacity: ${changeProps.opacity}`
     : `transform: ${changeProps.transform}`
   )};
   div.bioContainer {
     ${tw('flex flex-col overflow-y-scroll')};
     p.p1 {
-      ${tw('self-end text-gray-400 lg:text-2xl sm:text-xl mr-8')};
+      ${tw('self-end text-gray-200 lg:text-2xl sm:text-xl mr-8')};
     }
     p.p2 {
-      ${tw('self-end text-gray-400 lg:text-2xl sm:text-xl mr-8')};
+      ${tw('self-end text-gray-200 lg:text-2xl sm:text-xl mr-8')};
     }
     a {
       ${tw('text-gray-500 underline mb-8 mr-8')};
+    }
+    span {
+      ${tw('text-gray-300 underline mb-8 mr-8')};
     }
   }
 `;
 
 const BioTitle = styled.h2`
-  ${tw('my-2 font-semibold text-gray-200 lg:text-4xl sm:text-3xl mr-8')};
+  ${tw('my-2 font-semibold text-gray-100 lg:text-4xl sm:text-3xl mr-8')};
 `;
 
 const BioAgeText = styled.span`
@@ -108,7 +111,8 @@ const PageContents = ({
   },
   mobile,
   transformFrom,
-  transformTo
+  transformTo,
+  closeModal
 }) => {
   const age = differenceInYears(
     new Date(),
@@ -123,18 +127,19 @@ const PageContents = ({
       >
         {props => (
           <BioScrollBox changeProps={props} mobile={mobile}>
-            <BioTitle>{`Bio of ${name}`}</BioTitle>
+            <BioTitle>{name}</BioTitle>
             <BioAgeText>{`Age: ${age}`}</BioAgeText>
             <div className="bioContainer">
               <p className="p1">{bio1}</p>
               <p className="p2">{bio2}</p>
-              <a 
-                href={webSite} 
-                target="_blank" 
+              <a
+                href={webSite}
+                target="_blank"
                 rel="noopener noreferrer"
               >
-                {`${name}'s web page`}
+                website
               </a>
+              <span onClick={closeModal}>back to list</span>
             </div>
           </BioScrollBox>
         )}
@@ -152,10 +157,11 @@ const PageModal = ({ isModalOpen, musician, closeModal, mobile, transformFrom, t
     contentLabel={`A modal bio of ${musician}`}
   >
     <PageContents
-      musician={musician} 
+      musician={musician}
       mobile={mobile}
       transformFrom={transformFrom}
       transformTo={transformTo}
+      closeModal={closeModal}
     />
   </Modal>
 );
